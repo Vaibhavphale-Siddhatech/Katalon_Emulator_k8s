@@ -13,7 +13,7 @@ pipeline {
     stage('SCM Checkout') {
       steps{
         script {
-          git credentialsId: 'Github_cred_siddhatech', poll: false, url: 'https://github.com/Vaibhavphale-Siddhatech/Katalon_Emulator_k8s.git'
+	  git branch: 'main', credentialsId: 'Github_cred_siddhatech', url: 'https://github.com/Vaibhavphale-Siddhatech/Katalon_Emulator_k8s.git'
         }
       }
     }
