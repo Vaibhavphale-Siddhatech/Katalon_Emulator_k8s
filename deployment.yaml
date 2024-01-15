@@ -27,13 +27,19 @@ spec:
       #        name: report-volume
           ports:
           - containerPort: 5900 #The port for android emulator container
+          # args:
+          #   - bash
+          #   - -c
+          #   - |
+          #     ./start_vnc.sh \
+          #     ./start_emu_headed.sh \
+          #     tail -f /dev/null
+          command: ["bash", "-c"]
           args:
-            - bash
-            - -c
-            - |
-              ./start_vnc.sh \
-              ./start_emu_headed.sh \
-              tail -f /dev/null
+                - |
+                ./start_vnc.sh
+                ./start_emu_headed.sh
+                tail -f /dev/null
           env:
             - name: APPIUM_PORT
               value: "4725"
