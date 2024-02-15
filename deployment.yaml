@@ -23,10 +23,6 @@ spec:
           volumeMounts:
           - name: script-volume
             mountPath: /
-      volumes:
-      - name: script-volume
-        hostPath:
-          path: /
           args:
             - bash
             - -c
@@ -43,6 +39,10 @@ spec:
               privileged: true
           stdin: true
           tty: true
+      volumes:
+        - name: script-volume
+          hostPath:
+            path: /  
         #   # VNC Container
         # - name: vnc #The name of the VNC container
         #   image: vaibhavx7/android-emulator:latest #The Docker image for building the VNC container
