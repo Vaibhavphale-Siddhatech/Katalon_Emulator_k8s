@@ -23,6 +23,10 @@ spec:
           volumeMounts:
           - name: script-volume
             mountPath: /
+      volumes:
+      - name: script-volume
+        hostPath:
+          path: /
           args:
             - bash
             - -c
