@@ -30,8 +30,6 @@ function check_hardware_acceleration() {
     echo "$hw_accel_flag"
 }
 
-hw_accel_flag=$(check_hardware_acceleration)
-
 function launch_emulator () {
   adb devices | grep emulator | cut -f1 | xargs -I {} adb -s "{}" emu kill
   options="-avd ${emulator_name} -no-snapshot -noaudio -no-boot-anim -memory 4096 ${hw_accel_flag} -camera-back none"
@@ -98,6 +96,8 @@ function hidden_policy() {
   adb shell "settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1"
 };
 
+check_hardware_acceleration()
+sleep 2
 launch_emulator
 sleep 2
 check_emulator_status
