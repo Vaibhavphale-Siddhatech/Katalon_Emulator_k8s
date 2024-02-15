@@ -96,7 +96,7 @@ function hidden_policy() {
   adb shell "settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1"
 };
 
-check_hardware_acceleration()
+check_hardware_acceleration
 sleep 2
 launch_emulator
 sleep 2
