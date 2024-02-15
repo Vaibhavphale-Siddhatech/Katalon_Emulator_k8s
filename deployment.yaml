@@ -21,7 +21,7 @@ spec:
           ports:
           - containerPort: 5900 #The port for android emulator container
           volumeMounts:
-            - name: script-volume
+          - name: script-volume
             mountPath: /
           args:
             - bash
