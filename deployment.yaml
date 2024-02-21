@@ -27,7 +27,19 @@ spec:
       #        name: report-volume
           ports:
           - containerPort: 5900 #The port for android emulator container
+          # args:
+          #   - bash
+          #   - -c
+          #   - |
+          #     ./start_vnc.sh \
+          #     ./start_emu_headed.sh \
+          #     tail -f /dev/null
+          command: ["bash", "-c"]
           args:
+                - |
+                ./start_vnc.sh
+                ./start_emu_headed.sh
+                tail -f /dev/null
             - bash
             - -c
             - |
@@ -43,7 +55,6 @@ spec:
               privileged: true
           stdin: true
           tty: true
-
         #   # VNC Container
         # - name: vnc #The name of the VNC container
         #   image: vaibhavx7/android-emulator:latest #The Docker image for building the VNC container
