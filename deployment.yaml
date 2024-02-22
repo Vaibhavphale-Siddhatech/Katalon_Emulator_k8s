@@ -31,14 +31,11 @@ spec:
             - bash
             - -c
             - |
-              ./start_vnc.sh \
-              ./start_emu_headed.sh \
+              ./start_emu_headless.sh \
               tail -f /dev/null
           env:
             - name: APPIUM_PORT
               value: "4725"
-            - name: VNC_PASSWORD
-              value: "123"
           securityContext:
               privileged: true
           stdin: true
