@@ -52,6 +52,15 @@ pipeline {
       }
     }
 
+    stage('Context switch') {
+      steps {
+        script {
+		sh '''minikube kubectl -- config get-contexts'''
+		sh '''minikube kubectl -- config use-context minikube'''
+        }
+      }
+    }
+
     stage('VNC Port Forwarding') {
         steps {
 	  script {
