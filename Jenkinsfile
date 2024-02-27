@@ -54,7 +54,13 @@ pipeline {
 	
      stage('VNC Port Forwarding') {
         steps {
-		sh '''echo "siddhatech" | sudo -u siddhatech -S ./vnc_portforward.sh'''
+		script {
+                    def sudoCommand = 'sudo -u siddhatech ./vnc_portforward.sh'
+                    sh """
+                        export SUDO_ASKPASS=/usr/bin/ssh-askpass
+                        echo "siddhatech" | ${sudoCommand}
+                    """
+		}
         }
      }
   }
