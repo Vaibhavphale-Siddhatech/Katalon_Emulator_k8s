@@ -54,7 +54,7 @@ pipeline {
 	
      stage('VNC Port Forwarding') {
         steps {
-        	build job: "portforwarding", wait: true
+        	sh './vnc_portforward.sh'
         }
      }
   }
