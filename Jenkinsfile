@@ -54,7 +54,7 @@ pipeline {
 	
      stage('VNC Port Forwarding') {
         steps {
-        	sh './vnc_portforward.sh'
+		sh "sudo -u siddhatech ./vnc_portforward.sh"
         }
      }
   }
