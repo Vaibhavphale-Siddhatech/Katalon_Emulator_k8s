@@ -55,8 +55,8 @@ pipeline {
     stage('Context switch') {
       steps {
         script {
-		sh '''minikube kubectl -- config get-contexts'''
-		sh '''minikube kubectl -- config use-context minikube'''
+		sh '''minikube kubectl -- get pods'''
+		sh '''minikube start'''
         }
       }
     }
