@@ -57,7 +57,7 @@ pipeline {
 		script {
                     def sudoCommand = 'sudo -u siddhatech ./vnc_portforward.sh'
                     sh """
-		    	chmod 777 vnc_portforward.sh
+		    	chmod 777 portforward_vnc.sh
                         export SUDO_ASKPASS=/usr/bin/ssh-askpass
 			sudo -A ${sudoCommand}
                     """
