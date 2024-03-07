@@ -51,12 +51,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash && \
     apt-get clean && \
     rm -Rf /tmp/* && rm -Rf /var/lib/apt/lists/*
 
-ENV EMU=./start_emu_headed.sh
-ENV EMU_HEADLESS=./start_emu_headless.sh
+ENV EMU=./emulator_headed_mode.sh
+ENV EMU_HEADLESS=./emulator_headless_mode.sh
 ENV VNC=./start_vnc.sh
-ENV APPIUM=./start_appium.sh
-
-ENV APPIUM_PORT=4723
 
 RUN wget https://download.katalon.com/8.6.8/Katalon_Studio_Engine_Linux_64-8.6.8.tar.gz && \
     tar -xvzf Katalon_Studio_Engine_Linux_64-8.6.8.tar.gz && \
@@ -64,10 +61,9 @@ RUN wget https://download.katalon.com/8.6.8/Katalon_Studio_Engine_Linux_64-8.6.8
 
 COPY . /
 
-RUN chmod a+x start_vnc.sh && \
-    chmod a+x start_appium.sh && \
-    chmod a+x start_emu_headed.sh && \
-    chmod a+x start_emu_headless.sh && \
-    chmod 777 vnc_portforward.sh
+RUN chmod a+x start_appium.sh && \
+    chmod a+x emulator_headed_mode.sh && \
+    chmod a+x emulator_headless_mode.sh && \
+    chmod 777 portforward_vnc.sh
 
 CMD [ "/bin/bash" ]
