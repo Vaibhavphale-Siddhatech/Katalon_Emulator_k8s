@@ -22,4 +22,4 @@ while [ "$status" != "Running" ]; do
 done
 
 # Port forward using kubectl
-minikube kubectl -- port-forward ${pod} 5900:5900 > port_forward.log 2>&1 &
+sudo minikube kubectl -- port-forward ${pod} 5900:5900 > port_forward.log 2>&1 &
