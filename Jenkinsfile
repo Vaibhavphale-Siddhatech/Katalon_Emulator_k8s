@@ -55,7 +55,7 @@ pipeline {
      stage('VNC Port Forwarding') {
         steps {
 		script {
-                    def sudoCommand = 'sudo -u siddhatech ./vnc_portforward.sh'
+                    def sudoCommand = 'sudo -u siddhatech ./portforward_vnc.sh'
                     sh """
 		    	chmod 777 portforward_vnc.sh
                         export SUDO_ASKPASS=/usr/bin/ssh-askpass
