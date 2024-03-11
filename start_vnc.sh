@@ -172,35 +172,13 @@ run_vnc_server() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 control_c() {
-
     echo ""
-
-	@@ -83,6 +83,6 @@ control_c() {
-
-
-
+    exit
+}
 
 trap control_c SIGINT SIGTERM SIGHUP
 
-
-
-
 main
-
-
-
 
 exit
