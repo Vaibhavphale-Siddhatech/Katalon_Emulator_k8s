@@ -26,6 +26,7 @@ ENV KATALON_JAVA_HOME=/opt/java/openjdk/jre
 ENV PATH "$PATH:$ANDROID_SDK_ROOT/cmdline-tools/tools:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$ANDROID_SDK_ROOT/emulator:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/build-tools/${BUILD_TOOLS}"
 ENV DOCKER="true"
 ENV DISPLAY=:1
+ENV APPIUM_PORT=4723
 
 RUN wget https://dl.google.com/android/repository/${ANDROID_CMD} -P /tmp && \
               unzip -d $ANDROID_SDK_ROOT /tmp/$ANDROID_CMD && \
@@ -54,6 +55,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash && \
 ENV EMU=./emulator_headed_mode.sh
 ENV EMU_HEADLESS=./emulator_headless_mode.sh
 ENV VNC=./start_vnc.sh
+ENV APPIUM=./start_appium.sh
 
 RUN wget https://download.katalon.com/8.6.8/Katalon_Studio_Engine_Linux_64-8.6.8.tar.gz && \
     tar -xvzf Katalon_Studio_Engine_Linux_64-8.6.8.tar.gz && \
