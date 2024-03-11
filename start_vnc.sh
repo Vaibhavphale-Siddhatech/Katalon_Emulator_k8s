@@ -68,7 +68,7 @@ vnc_server(){
     wait $!
 }
 
-main_function() {
+imp() {
     xvfb
     window_manager_fluxbox
     vnc_server
@@ -83,6 +83,6 @@ control_c() {
 
 trap control_c SIGINT SIGTERM SIGHUP
 
-main_function
+imp
 
 exit
