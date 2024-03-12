@@ -17,7 +17,7 @@ services:
       - bash
       - -c
       - | 
-         ./emulator_headed_mode.sh
+         ./start_emu_headed.sh
          tail -f /dev/null
     tty: true
     stdin_open: true
