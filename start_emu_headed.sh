@@ -35,11 +35,11 @@ function launch_emulator () {
   options="-avd ${emulator_name} -no-snapshot -noaudio -no-boot-anim -memory 4096 ${hw_accel_flag} -camera-back none"
   if [[ "$OSTYPE" == *linux* ]]; then
     echo "${OSTYPE}: emulator ${options} -gpu auto"
-    emulator $options -gpu auto &
+    nohup emulator $options -gpu auto &
   fi
   if [[ "$OSTYPE" == *darwin* ]] || [[ "$OSTYPE" == *macos* ]]; then
     echo "${OSTYPE}: emulator ${options} -gpu swiftshader_indirect"
-    emulator $options -gpu swiftshader_indirect &
+    nohup emulator $options -gpu swiftshader_indirect &
   fi
 
   if [ $? -ne 0 ]; then
