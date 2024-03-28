@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: android-service #The name of the Kubernetes Service to be created in the Kubernetes cluster
+  name: android-service
 spec:
   selector:
     app:  
-  type: LoadBalancer #Type of the Kubernetes Service
+  type: LoadBalancer
   ports:
   - protocol: TCP
     name: "5901"
-    port: 5901 #Service port
-    targetPort: 5901 #The port for the katalon android application container
+    port: 5901
+    targetPort: 5901
